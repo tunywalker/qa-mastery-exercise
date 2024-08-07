@@ -1,0 +1,18 @@
+{
+    "id": 99,
+    "category": {
+        "id": 1,
+        "name": "ExampleCategoryName"
+    },
+    "name": "HelloCuteDog",
+    "photoUrls": [
+        "http://PhotoUrl.com/image.webp"
+    ],
+    "tags": [
+        {
+            "id": 0,
+            "name": "string"
+        }
+    ],
+    "status": "available"
+}
