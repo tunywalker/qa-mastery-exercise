@@ -1,23 +1,18 @@
 import { PET_ENDPOINT } from '../../support/constants';
 import { PET_IDS } from '../../support/petIds';
 describe('GET Pet by ID', () => {
-
-    afterEach(() => {       
-        cy.screenshot();
-      });
-    it('retrieve pet details with correct id', () => {
-        cy.request('GET', `${PET_ENDPOINT}/${PET_IDS.CORRECT_ID}`)
+    it('delete pet with correct id', () => {
+        cy.request('DELETE', `${PET_ENDPOINT}/${PET_IDS.CORRECT_ID}`)
             .then((response) => {
                 expect(response.status).to.eq(200);
                 cy.log(JSON.stringify(response.body));
                 console.log(response.body);
-               
             });
     });
 
-    it('gives not found error with incorrect id ', () => {
+    it('try to delete pet gives not found error with incorrect id ', () => {
         cy.request({
-            method: 'GET',
+            method: 'DELETE',
             url: `${PET_ENDPOINT}/${PET_IDS.INCORRECT_ID}`,
             failOnStatusCode: false
         })
@@ -28,9 +23,9 @@ describe('GET Pet by ID', () => {
             });
     });
 
-    it('gives not found error with wrong format id', () => {
+    it('try to delete pet gives NumberFormatException and Not Found error with wrong format id', () => {
         cy.request({
-            method: 'GET',
+            method: 'DELETE',
             url: `${PET_ENDPOINT}/${PET_IDS.WRONG_FORMAT_ID}`,
             failOnStatusCode: false
         })
