@@ -1,14 +1,14 @@
 import { PET_ENDPOINT } from '../../support/constants';
 describe('Create Pet', () => {
     it('creates a new pet successfully with valid data', () => {
-        cy.fixture('validPetData').then((validPetData) => {
+        cy.fixture('validPetDataForCreate').then((validPetDataForCreate) => {
             cy.request({
                 method: 'POST',
                 url: `${PET_ENDPOINT}`,
                 headers: {
                     'Accept': 'application/json'
                 },
-                body: validPetData,
+                body: validPetDataForCreate,
                 failOnStatusCode: false
             })
             .then((response) => {
@@ -20,14 +20,14 @@ describe('Create Pet', () => {
     });
 
     it('fails to create a pet with invalid id data', () => {
-        cy.fixture('invalidPetData').then((invalidPetData) => {
+        cy.fixture('invalidPetDataForCreate').then((invalidPetDataForCreate) => {
             cy.request({
                 method: 'POST',
                 url: `${PET_ENDPOINT}`,
                 headers: {
                     'Accept': 'application/json'
                 },
-                body: invalidPetData,
+                body: invalidPetDataForCreate,
                 failOnStatusCode: false
             })
             .then((response) => {
@@ -40,14 +40,14 @@ describe('Create Pet', () => {
     });
 
     it('creates a new pet successfully with valid data without category area ', () => {
-        cy.fixture('validPetDataWithoutCategory').then((validPetDataWithoutCategory) => {
+        cy.fixture('validPetDataWithoutCategoryForCreate').then((validPetDataWithoutCategoryForCreate) => {
             cy.request({
                 method: 'POST',
                 url: `${PET_ENDPOINT}`,
                 headers: {
                     'Accept': 'application/json'
                 },
-                body: validPetDataWithoutCategory,
+                body: validPetDataWithoutCategoryForCreate,
                 failOnStatusCode: false
             })
             .then((response) => {
