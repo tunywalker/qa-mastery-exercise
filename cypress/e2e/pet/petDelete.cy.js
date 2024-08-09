@@ -1,6 +1,6 @@
 import { PET_ENDPOINT } from '../../support/constants';
 import { PET_IDS } from '../../support/petIds';
-describe('GET Pet by ID', () => {
+describe('Delete Pet by ID', () => {
     it('delete pet with correct id', () => {
         cy.request('DELETE', `${PET_ENDPOINT}/${PET_IDS.CORRECT_ID}`)
             .then((response) => {
