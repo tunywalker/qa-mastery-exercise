@@ -1,0 +1,22 @@
+image: cypress/browsers:node16.14.2-chrome100-ff99
+
+stages:
+  - test
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+
+before_script:
+  - npm ci
+
+test:
+  stage: test
+  script:
+    - npx cypress run
+  artifacts:
+    paths:
+      - cypress/videos/**/*.mp4
+      - cypress/screenshots/**/*.png
+    when: always
